@@ -20,10 +20,10 @@ class UserController extends Controller
         ]);
     }
 
-    public function create()
+    public function create(Request $request)
     {
         $users = User::all();
-        return view('user.create');
+        return view('user.create', compact('users'));
     }
 
     public function store(UserStoreRequest $request)
