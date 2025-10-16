@@ -29,9 +29,7 @@ class UserController extends Controller
     public function store(UserStoreRequest $request)
     {
         $user = User::create($request->validated());
-
         session()->flash('success', 'Usuario creado exitosamente');
-
         return redirect()->route('users.index');
     }
 
@@ -45,9 +43,7 @@ class UserController extends Controller
     public function update(UserUpdateRequest $request, User $user)
     {
         $user->update($request->validated());
-
         session()->flash('success', 'Usuario actualizado exitosamente');
-
         return redirect()->route('users.index');
     }
 
