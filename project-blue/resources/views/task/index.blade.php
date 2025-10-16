@@ -1,6 +1,6 @@
 @extends('templates.base')
 @section('title', 'Tareas')
-@section('subtitle', 'Listado')
+@section('subtitle', 'Listado de Tareas')
 @section('content')
     @include('templates.messages')
 
@@ -30,23 +30,9 @@
                             <td>{{ $task->id }}</td>
                             <td>{{ $task->project->title ?? '—' }}</td>
                             <td>{{ $task->name }}</td>
-                            <td>{{ Str::limit($task->description, 50) }}</td>
-                            <td>
-                                @switch($task->status)
-                                    @case('pending')
-                                        <span class="badge badge-warning">Pendiente</span>
-                                        @break
-                                    @case('in_progress')
-                                        <span class="badge badge-info">En progreso</span>
-                                        @break
-                                    @case('completed')
-                                        <span class="badge badge-success">Completada</span>
-                                        @break
-                                    @default
-                                        <span class="badge badge-secondary">Desconocido</span>
-                                @endswitch
-                            </td>
-                            <td>{{ $task->due_date ? \Carbon\Carbon::parse($task->due_date)->format('d/m/Y') : '—' }}</td>
+                            <td>{{ $task->description}}</td>
+                            <td>{{ $task->status}}</td>
+                            <td>{{ $task->due_date}}</td>
 
                             <td>
                                 <!-- Ver Detalle -->
@@ -54,12 +40,10 @@
                                     data-toggle="modal" data-target="#modalShow{{ $task->id }}">
                                     <i class="nc-icon nc-zoom-split"></i>
                                 </a>
-
                                 <!-- Editar -->
                                 <a href="{{ route('tasks.edit', $task->id) }}" class="btn btn-warning btn-fill btn-sm mr-2" title="Editar">
                                     <i class="nc-icon nc-tap-01"></i>
                                 </a>
-
                                 <!-- Eliminar -->
                                 <form id="form-delete-{{ $task->id }}" action="{{ route('tasks.destroy', $task->id) }}" method="POST" class="d-inline">
                                     @csrf
@@ -84,7 +68,7 @@
                                             <p><strong>Nombre:</strong> {{ $task->name }}</p>
                                             <p><strong>Descripción:</strong> {{ $task->description }}</p>
                                             <p><strong>Estado:</strong> {{ ucfirst(str_replace('_', ' ', $task->status)) }}</p>
-                                            <p><strong>Fecha límite:</strong> {{ $task->due_date ? \Carbon\Carbon::parse($task->due_date)->format('d/m/Y') : '—' }}</p>
+                                            <p><strong>Fecha límite:</strong> {{ $task->due_date ? date('Y-m-d', strtotime($task->due_date)) : 'No especificada' }}</p>
                                         </div>
                                         <div class="modal-footer justify-content-center">
                                             <button type="button" class="btn btn-link btn-simple" data-dismiss="modal">Cerrar</button>
@@ -92,7 +76,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- Fin Modal -->
+                            
                         </tr>
                     @endforeach
                 </tbody>

@@ -23,7 +23,10 @@ class TaskController extends Controller
     public function create()
     {
         $projects = Project::all();
-        return view('task.create');
+
+        return view('task.create', [
+            'projects' => $projects,
+        ]);
     }
 
     public function store(TaskStoreRequest $request)
@@ -35,8 +38,10 @@ class TaskController extends Controller
 
     public function edit(Task $task)
     {
+        $projects = Project::all(); 
         return view('task.edit', [
             'task' => $task,
+            'projects' => $projects,
         ]);
     }
 
