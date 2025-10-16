@@ -16,3 +16,21 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::resource('users', App\Http\Controllers\UserController::class)->except('show');
+
+Route::resource('projects', App\Http\Controllers\ProjectController::class)->except('show');
+
+Route::resource('tasks', App\Http\Controllers\TaskController::class)->except('show');
+
+Route::resource('project_users', App\Http\Controllers\Project_userController::class)->except('show');
+
+
+Route::resource('users', App\Http\Controllers\UserController::class)->except('show');
+
+Route::resource('projects', App\Http\Controllers\ProjectController::class)->except('show');
+
+Route::resource('tasks', App\Http\Controllers\TaskController::class)->except('show');
+
+Route::resource('project_users', App\Http\Controllers\Project_userController::class)->except('show');

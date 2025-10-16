@@ -1,0 +1,48 @@
+created:
+    - app/Http/Controllers/UserController.php
+    - app/Http/Controllers/ProjectController.php
+    - app/Http/Controllers/TaskController.php
+    - app/Http/Controllers/Project_userController.php
+    - database/factories/UserFactory.php
+    - database/factories/ProjectFactory.php
+    - database/factories/TaskFactory.php
+    - database/factories/ProjectUserFactory.php
+    - database/migrations/2025_10_16_133928_create_users_table.php
+    - database/migrations/2025_10_16_133929_create_projects_table.php
+    - database/migrations/2025_10_16_133930_create_tasks_table.php
+    - database/migrations/2025_10_16_133931_create_project_users_table.php
+    - app/Models/User.php
+    - app/Models/Project.php
+    - app/Models/Task.php
+    - app/Models/Project_user.php
+    - tests/Feature/Http/Controllers/UserControllerTest.php
+    - tests/Feature/Http/Controllers/ProjectControllerTest.php
+    - tests/Feature/Http/Controllers/TaskControllerTest.php
+    - tests/Feature/Http/Controllers/Project_userControllerTest.php
+    - app/Http/Requests/UserStoreRequest.php
+    - app/Http/Requests/UserUpdateRequest.php
+    - app/Http/Requests/ProjectStoreRequest.php
+    - app/Http/Requests/ProjectUpdateRequest.php
+    - app/Http/Requests/TaskStoreRequest.php
+    - app/Http/Requests/TaskUpdateRequest.php
+    - app/Http/Requests/Project_userStoreRequest.php
+    - app/Http/Requests/Project_userUpdateRequest.php
+    - resources/views/user/index.blade.php
+    - resources/views/user/create.blade.php
+    - resources/views/user/edit.blade.php
+    - resources/views/project/index.blade.php
+    - resources/views/project/create.blade.php
+    - resources/views/project/edit.blade.php
+    - resources/views/task/index.blade.php
+    - resources/views/task/create.blade.php
+    - resources/views/task/edit.blade.php
+    - resources/views/projectUser/index.blade.php
+    - resources/views/projectUser/create.blade.php
+    - resources/views/projectUser/edit.blade.php
+updated:
+    - routes/web.php
+models:
+    User: { name: string, email: string, password: string }
+    Project: { title: string, description: text, owner_id: 'id foreign:users.id onDelete:cascade onUpdate:cascade' }
+    Task: { project_id: 'id foreign:projects.id onDelete:cascade onUpdate:cascade', name: string, description: text, status: 'enum:pendiente,completado,cancelado', due_date: date }
+    Project_user: { project_id: 'id foreign:projects.id onDelete:cascade onUpdate:cascade', user_id: 'id foreign:users.id onDelete:cascade onUpdate:cascade', role: 'string:50', indexes: [{ unique: 'project_id, user_id' }] }
