@@ -25,4 +25,13 @@ class ProjectStoreRequest extends FormRequest
             'owner_id' => ['required', 'integer', 'exists:users.id,id'],
         ];
     }
+
+    public function attributes()
+    {
+        return  [
+            'title' => 'titulo',
+            'description' => 'descripcion',
+            'owner' => 'propietario'
+        ];
+    }
 }
