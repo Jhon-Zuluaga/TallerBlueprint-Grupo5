@@ -18,13 +18,15 @@ class ProjectController extends Controller
 
         return view('project.index', [
             'projects' => $projects,
+        
         ]);
     }
 
-    public function create(Request $request)
+    public function create()
     {
         $projects = Project::all();
         $users = User::all();
+
         return view('project.create',compact('projects','users'));
     }
 
@@ -37,18 +39,10 @@ class ProjectController extends Controller
         return redirect()->route('projects.index');
     }
 
-    public function edit(Project $project, string $id)
+    public function edit(Project $project)
     {
-
-        $project =  Project::find($id);
-        if($project){
-            $users = User::all();
-            return view('project.edit',compact('project','users'));
-        }
-        else{
-             session()->flash('warning','No se encuentra el registro solicitado');
-              return redirect()->route('project.index');
-        }
+       $users = User::all();
+        return view('project.edit', compact('project', 'users'));
     }
 
     public function update(ProjectUpdateRequest $request, Project $project)
@@ -60,7 +54,7 @@ class ProjectController extends Controller
         return redirect()->route('projects.index');
     }
 
-    public function destroy(Request $request, Project $project)
+    public function destroy(Project $project)
     {
         $project->delete();
          session()->flash('success','Registro eliminado exitosamente');

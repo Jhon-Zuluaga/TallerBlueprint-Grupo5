@@ -22,7 +22,7 @@ class ProjectStoreRequest extends FormRequest
         return [
             'title' => ['required', 'string'],
             'description' => ['required', 'string'],
-            'owner_id' => ['required', 'integer', 'exists:users.id,id'],
+            'owner_id' => ['required', 'integer', 'exists:users,id'],
         ];
     }
 
@@ -31,7 +31,7 @@ class ProjectStoreRequest extends FormRequest
         return  [
             'title' => 'titulo',
             'description' => 'descripcion',
-            'owner' => 'propietario'
+            'owner_id' => 'propietario'
         ];
     }
 }
