@@ -16,25 +16,25 @@
                 </a>
             </li>
             <li>
-                <a class="nav-link" href="{{ route('categories.index') }}">
+                <a class="nav-link" href="#">
                     <i class="nc-icon nc-circle-09"></i>
                     <p>Categorías</p>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('courses.index') }}">
+                <a class="nav-link" href="#">
                     <i class="nc-icon nc-notes"></i>
                     <p>Cursos</p>
                 </a>
             </li>
             <li>
-                <a class="nav-link" href="{{ route('enrollments.index') }}">
+                <a class="nav-link" href="#">
                     <i class="nc-icon nc-paper-2"></i>
                     <p>Matrículas</p>
                 </a>
             </li>
             <li>
-                <a class="nav-link" href="{{ route('lessons.index') }}">
+                <a class="nav-link" href="#">
                     <i class="nc-icon nc-atom"></i>
                     <p>Lecciones</p>
                 </a>
