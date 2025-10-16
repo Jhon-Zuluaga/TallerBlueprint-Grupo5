@@ -11,7 +11,7 @@ use Illuminate\View\View;
 
 class UserController extends Controller
 {
-    public function index(Request $request): Response
+    public function index()
     {
         $users = User::all();
 
@@ -20,40 +20,41 @@ class UserController extends Controller
         ]);
     }
 
-    public function create(Request $request): Response
+    public function create()
     {
+        $users = User::all();
         return view('user.create');
     }
 
-    public function store(UserStoreRequest $request): Response
+    public function store(UserStoreRequest $request)
     {
         $user = User::create($request->validated());
 
-        $request->session()->flash('user.id', $user->id);
+        session()->flash('success', 'Usuario creado exitosamente');
 
         return redirect()->route('users.index');
     }
 
-    public function edit(Request $request, User $user): Response
+    public function edit(User $user)
     {
         return view('user.edit', [
             'user' => $user,
         ]);
     }
 
-    public function update(UserUpdateRequest $request, User $user): Response
+    public function update(UserUpdateRequest $request, User $user)
     {
         $user->update($request->validated());
 
-        $request->session()->flash('user.id', $user->id);
+        session()->flash('success', 'Usuario actualizado exitosamente');
 
         return redirect()->route('users.index');
     }
 
-    public function destroy(Request $request, User $user): Response
+    public function destroy(User $user)
     {
         $user->delete();
-
+        session()->flash('success', 'Usuario eliminado exitosamente');
         return redirect()->route('users.index');
     }
 }
