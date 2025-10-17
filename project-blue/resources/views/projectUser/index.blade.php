@@ -24,8 +24,8 @@
                     @foreach ($project_Users as $project_user)
                         <tr>
                             <td>{{ $project_user['id'] }}</td>
-                            <td>{{ $project_user['project_id'] }}</td>
-                            <td>{{ $project_user['user_id'] }}</td>
+                            <td>{{ $project_user->project->title }}</td>
+                            <td>{{ $project_user->user->name }}</td>
                             <td>{{ $project_user['role'] }}</td>
                             <td>
                                 <a href="#" class="btn btn-info btn-fill btn-sm mr-2" title="Ver"
@@ -54,8 +54,8 @@
                                     </div>
                                     <div class="modal-body">
                                         <p><strong>ID:</strong> {{ $project_user['id'] }}</p>
-                                        <p><strong>ID Proyecto:</strong> {{ $project_user['project_id'] }}</p>
-                                        <p><strong>ID Usuario:</strong> {{ $project_user['user_id'] }}</p>
+                                        <p><strong>Proyecto:</strong> {{ $project_user->project->title }}</p>
+                                        <p><strong>Usuario:</strong> {{ $project_user->user->name }}</p>
                                         <p><strong>Rol:</strong> {{ $project_user['role'] }}</p>
                                     </div>
                                     <div class="modal-footer justify-content-center">

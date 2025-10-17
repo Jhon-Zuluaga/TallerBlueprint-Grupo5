@@ -71,9 +71,9 @@ class ProjectUserController extends Controller
     /**
      * 
      */
-    public function update(Project_userUpdateRequest $request, ProjectUser $project_User): RedirectResponse
+    public function update(Project_userUpdateRequest $request, ProjectUser $project_user): RedirectResponse
     {
-        $project_User->update($request->validated());
+        $project_user->update($request->validated());
         session()->flash('success', 'Proyecto de Usuario actualizado exitosamente');
         return redirect()->route('project_users.index');
     }

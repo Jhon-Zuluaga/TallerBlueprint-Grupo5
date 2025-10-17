@@ -27,4 +27,14 @@ class TaskUpdateRequest extends FormRequest
             'due_date' => ['required', 'date'],
         ];
     }
+       public function attributes()
+    {
+        return [
+            'project_id' => 'proyecto',
+            'name' => 'nombre',
+            'description' => 'descripcion',
+            'status' => 'estado',
+            'due_date' => 'fecha de vencimiento',
+        ];
+    }
 }

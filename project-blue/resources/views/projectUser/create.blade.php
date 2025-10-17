@@ -6,9 +6,6 @@
 <div class="card">
     <div class="card-header d-flex justify-content-between align-items-center">
         <span>Formularío de creación</span>
-        <a href="{{ route('project_users.index') }}" class="btn btn-secondary btn-sm">
-            <i class="fa fa-arrow-left me-1"></i> Volver al listado
-        </a>
     </div>
     <div class="card-body">
         <form action="{{ route('project_users.store') }}" method="POST">
@@ -24,7 +21,7 @@
                     <option value="">Seleccione un proyecto</option>
                     @foreach($projects as $project)
                         <option value="{{ $project->id }}" {{ old('project_id') == $project->id ? 'selected' : '' }}>
-                            {{ $project->id }}
+                            {{ $project->title }}
                         </option>
                     @endforeach
                 </select>

@@ -6,12 +6,9 @@
 <div class="card">
     <div class="card-header d-flex justify-content-between align-items-center">
         <span>Editar formulario</span>
-        <a href="{{ route('project_users.index') }}" class="btn btn-secondary btn-sm">
-            <i class="fa fa-arrow-left me-1"></i> Volver
-        </a>
     </div>
     <div class="card-body">
-        <form action="{{ route('project_users.update', ['project_user' => $project_user->id]) }}" method="POST">
+        <form action="{{ route('project_users.update', $project_user->id) }}" method="POST">
             @csrf
             @method('PUT')
 
@@ -27,7 +24,7 @@
                     @foreach($projects as $project)
                         <option value="{{ $project->id }}" 
                             {{ old('project_id', $project_user->project_id) == $project->id ? 'selected' : '' }}>
-                            {{ $project->id }}
+                            {{ $project->title }}
                         </option>
                     @endforeach
                 </select>
@@ -75,10 +72,16 @@
                 @enderror
             </div>
 
-            <div class="text-end">
-                <a href="{{ route('project_users.index') }}" class="btn btn-secondary">Cancelar</a>
-                <button type="submit" class="btn btn-primary">Actualizar Asignación</button>
-            </div>
+           <div class="row col-lg-12">
+                    <div class="col-lg-6">
+                        <button type="submit" class="btn btn-success btn-block btn-fill">Guardar</button>
+                    </div>
+                    <div class="col-lg-6">
+                        <a href="{{ route('project_users.index') }}" class="btn btn-secondary btn-block btn-fill">
+                            Cancelar
+                        </a>
+                    </div>
+                </div>
         </form>
     </div>
 </div>

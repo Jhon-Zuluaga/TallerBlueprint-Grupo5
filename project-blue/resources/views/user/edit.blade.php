@@ -63,7 +63,7 @@
 
             <div class="text-end">
                 <a href="{{ route('users.index') }}" class="btn btn-secondary">Cancelar</a>
-                <button type="submit" class="btn btn-primary">Actualizar Categoría</button>
+                <button type="submit" class="btn btn-primary">Actualizar</button>
             </div>
         </form>
     </div>

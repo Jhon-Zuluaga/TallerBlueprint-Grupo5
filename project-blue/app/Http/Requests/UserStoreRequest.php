@@ -25,4 +25,13 @@ class UserStoreRequest extends FormRequest
             'password' => ['required', 'string', 'min:8'],
         ];
     }
+
+    public function attributes(){
+        
+        return [
+            'name' => 'nombre',
+            'email' => 'correo electronico',
+            'password' => 'contraseña'
+        ];
+    }
 }
