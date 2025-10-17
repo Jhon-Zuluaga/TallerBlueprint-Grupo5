@@ -20,9 +20,12 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#pablo">
-                        <span class="no-icon">Cerrar sesión</span>
-                    </a>
+                    <form action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        <button type="submit" class="nav-link btn btn-link" style="color: inherit; text-decoration: none;">
+                            <span class="no-icon">Cerrar sesión</span>
+                        </button>
+                    </form>
                 </li>
             </ul>
         </div>
