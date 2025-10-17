@@ -25,6 +25,6 @@ Route::resource('projects', App\Http\Controllers\ProjectController::class)->exce
 
 Route::resource('tasks', TaskController::class);
 
-Route::resource('project_users', App\Http\Controllers\Project_userController::class)->except('show');
+Route::resource('project_users', App\Http\Controllers\ProjectUserController::class)->except('show');
 
 
