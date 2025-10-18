@@ -1,0 +1,103 @@
+body {
+            margin: 0;
+            height: 100vh;
+            background: linear-gradient(135deg, #007bff, #00b4ff);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .login-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 50px 40px;
+            width: 370px;
+            color: white;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+            text-align: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+        }
+
+        .logo .dot {
+            width: 16px;
+            height: 16px;
+            background-color: #00aaff;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+
+        .logo h1 {
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: white;
+            margin: 0;
+        }
+
+        h2 {
+            font-weight: 600;
+            font-size: 26px;
+            margin-bottom: 5px;
+        }
+
+        p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
+
+        input.form-control {
+            background-color: rgba(255, 255, 255, 0.25);
+            border: none;
+            color: white;
+            border-radius: 10px;
+            padding: 12px;
+        }
+
+        input.form-control::placeholder {
+            color: rgba(255, 255, 255, 0.75);
+        }
+
+        input.form-control:focus {
+            background-color: rgba(255, 255, 255, 0.35);
+            box-shadow: none;
+            outline: none;
+            color: white;
+        }
+
+        .btn-login {
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 12px;
+            width: 100%;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-login:hover {
+            background: #006ae0;
+        }
+
+        .text-small {
+            margin-top: 15px;
+            font-size: 13px;
+        }
+
+        .text-small a {
+            color: #cce6ff;
+            text-decoration: none;
+        }
+
+        .text-small a:hover {
+            text-decoration: underline;
+        }

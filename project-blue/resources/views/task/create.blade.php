@@ -31,8 +31,8 @@
                             <select name="status" id="status" class="form-control" required>
                                 <option value="">Seleccione un estado</option>
                                 <option value="pendiente">Pendiente</option>
-                                <option value="completada">Completada</option>
-                                <option value="cancelada">Cancelada</option>
+                                <option value="completada">Completado</option>
+                                <option value="cancelada">Cancelado</option>
                            </select>     
                 </div>
 

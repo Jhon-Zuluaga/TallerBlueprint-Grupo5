@@ -5,16 +5,10 @@
     <div class="sidebar-wrapper">
         <div class="logo">
             <a href="#" class="simple-text">
-                Academy Blue
+                Project Blue
             </a>
         </div>
         <ul class="nav">
-            <li>
-                <a class="nav-link" href="dashboard.html">
-                    <i class="nc-icon nc-chart-pie-35"></i>
-                    <p>Dashboard</p>
-                </a>
-            </li>
             <li>
                 <a class="nav-link" href="{{ route('tasks.index') }}">
                     <i class="nc-icon nc-circle-09"></i>

@@ -35,12 +35,13 @@
                                 <a href="{{ route('project_users.edit', $project_user['id']) }}" class="btn btn-warning btn-fill btn-sm mr-2" title="Editar">
                                     <i class="nc-icon nc-tap-01"></i>
                                 </a>
-                                <form id="form-delete-{{ $project_user['id'] }}" action="{{ route('project_users.destroy', $project_user['id']) }}" method="POST" class="d-inline"> 
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" onclick="return remove();" class="btn btn-danger btn-fill btn-sm mr-2" title="Eliminar">
-                                        <i class="nc-icon nc-simple-remove"></i>
-                                    </button> 
+                               <form id="form-delete-{{ $project_user['id'] }}" action="{{ route('project_users.destroy',$project_user['id']) }}"
+                                method="post">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" onclick="return remove();" class="btn btn-danger btn-fill btn-sm mr-2" title="Eliminar">
+                                    <i class="nc-icon nc-simple-remove"></i> 
+                                </button>
                                 </form>
                             </td>
 

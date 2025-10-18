@@ -81,9 +81,9 @@ class ProjectUserController extends Controller
     /**
      * 
      */
-    public function destroy(ProjectUser $project_User): RedirectResponse
+    public function destroy(ProjectUser $project_user): RedirectResponse
     {
-        $project_User->delete();
+        $project_user->delete();
 
         session()->flash('success', 'Proyecto de Usuario eliminado exitosamente');
         return redirect()->route('project_users.index');

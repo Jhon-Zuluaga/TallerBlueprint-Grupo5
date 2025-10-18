@@ -1,7 +1,10 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\ProjectUserController;
 use App\Http\Controllers\TaskController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,12 +26,14 @@ Route::get('login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('login', [AuthController::class, 'login']);
 Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 
-Route::resource('users', App\Http\Controllers\UserController::class)->except('show');
 
-Route::resource('projects', App\Http\Controllers\ProjectController::class)->except('show');
 
-Route::resource('tasks', TaskController::class);
+Route::middleware(['auth', 'preventBackHistory'])->group(function () {
+    Route::resource('users', UserController::class)->except('show');
+    Route::resource('projects',ProjectController::class)->except('show');
+    Route::resource('tasks', TaskController::class);
+    Route::resource('project_users', ProjectUserController::class)->except('show');
+});
 
-Route::resource('project_users', App\Http\Controllers\ProjectUserController::class)->except('show');
 
 

@@ -35,8 +35,8 @@
                     <label for="status">Estado</label>
                             <select name="status" id="status" class="form-control" required>
                         <option value="pendiente" {{ old('status', $task->status) == 'pendiente' ? 'selected' : '' }}>Pendiente</option>
-                        <option value="completada" {{ old('status', $task->status) == 'completada' ? 'selected' : '' }}>Completada</option>
-                        <option value="cancelada" {{ old('status', $task->status) == 'cancelada' ? 'selected' : '' }}>Cancelada</option>
+                        <option value="completado" {{ old('status', $task->status) == 'completado' ? 'selected' : '' }}>Completado</option>
+                        <option value="cancelado" {{ old('status', $task->status) == 'cancelado' ? 'selected' : '' }}>Cancelado</option>
                     </select>
                 </div>
 
